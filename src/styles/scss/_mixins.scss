@@ -1,0 +1,42 @@
+@mixin navitemsStyle {
+  @for $i from 1 through 5 {
+    .navitem#{$i} {
+      background-color: $itemBackgroundColor;
+      min-width: 1rem;
+      min-height: 1rem;
+      flex-shrink: 0;
+      fill: #005354;
+      background: url(../../asset/image/logo/v#{$i}.png) no-repeat center;
+      margin: 0.5rem auto 0.25rem auto;
+      // top right bottom left
+    }
+    .navitemText#{$i} {
+      color: #005354;
+      font-family: Saira;
+      font-size: 0.5rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+}
+
+@mixin cardItemMIXIN {
+  @each $number in $itemNumber {
+    @for $i from 1 through 15 {
+      @if $number == $i {
+        .cardItem-#{$number} {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
+        }
+      }
+      @if $number != $i {
+        .cardItem-#{$number} {
+          /* Styles for the else condition */
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+        }
+      }
+    }
+  }
+}
