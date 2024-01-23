@@ -13,6 +13,8 @@ Global Styles
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  @include SairaFontFamily;
+  font-family: "Saira";
 }
 html {
   background-color: $bodyBackgroundColor;
@@ -53,6 +55,11 @@ img {
 }
 h2 {
   color: $textGold;
+  font-family: "Saira";
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 /*
 =============== 
@@ -79,6 +86,7 @@ Navbar
 
   .logo {
     background: url(../../asset/image/logo/logo.png) no-repeat center;
+    background-size: cover;
     width: 1.24475rem;
     height: 1.75rem;
     flex-shrink: 0;
@@ -106,6 +114,76 @@ Navbar
 }
 /*
 =============== 
+cardItem Styles
+===============
+*/
+
+.cardItem {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto 0.5rem 1rem 1.81rem;
+  // top right bottom left:;
+  align-items: center;
+  justify-content: flex-start;
+  justify-items: left;
+  max-width: 7.94rem;
+  width: 100%;
+  margin-right: -50px;
+
+  .logo-desc {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .swissLogo {
+    background: url(../../asset/image/logo/swiss.jpg) no-repeat center;
+    background-size: cover;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    border: 1px solid $textGold;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin: 0.5rem 0.5rem 0.06rem 1.81rem;
+    // top right bottom left:;
+
+    border-radius: 0.0625rem;
+    -webkit-border-radius: 0.0625rem;
+    -moz-border-radius: 0.0625rem;
+    -ms-border-radius: 0.0625rem;
+    -o-border-radius: 0.0625rem;
+  }
+
+  .description {
+    float: left;
+    color: $textGold;
+    font-family: "Saira";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 5rem;
+    // margin-left: -1.81rem;
+    margin-top: 0.5rem;
+    text-wrap: nowrap;
+  }
+  .title {
+    width: 3.4375rem;
+    color: $textGreen;
+    font-family: "Saira";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: -1.5rem;
+    margin-top: 0.06rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-wrap: nowrap;
+  }
+}
+
+/*
+=============== 
 card Styles
 ===============
 */
@@ -124,13 +202,21 @@ card Styles
     margin: 1.06rem 0.75rem 1.12rem 1.06rem;
 
     .halloween {
-      background: url(../../asset/image/logo/halloween.png) no-repeat center;
+      background: url(../../asset/image/logo/halloween.jpg) no-repeat center;
+      background-size: cover;
+      object-fit: fit;
+      width: 2.875rem;
+      height: 4.3125rem;
+      flex-shrink: 0;
+      border-radius: 0.0625rem;
+      border: 1px solid #b19149;
       margin-right: 0.75rem;
     }
     .titleBar {
+      margin-left: 0.75rem;
       .upBar {
         color: $textGold;
-        font-family: Saira;
+        font-family: "Saira";
         font-size: 0.875rem;
         font-style: normal;
         font-weight: 600;
@@ -144,6 +230,8 @@ card Styles
           width: 0.1875rem;
           height: 0.8125rem;
           fill: $textGreen;
+          object-fit: cover;
+          background-size: cover;
         }
       }
     }
@@ -166,8 +254,8 @@ card Styles
     .downBar {
       width: 20.125rem;
       color: $textGreen;
-      font-family: Saira;
-      font-size: 0.625rem;
+      font-family: "Saira";
+      font-size: 0.6rem;
       font-style: normal;
       font-weight: 600;
       line-height: normal;
@@ -179,11 +267,17 @@ card Styles
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(5, 1fr);
+  position: relative;
+
+  .cardItem {
+    position: relative;
+    @include insideBorder;
+  }
 }
 .bottomCard {
   flex-shrink: 0;
   color: $textGold;
-  font-family: Saira;
+  font-family: "Saira";
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;
@@ -192,73 +286,6 @@ card Styles
   text-wrap: nowrap;
   margin: 1.44rem 12rem 1.06rem 12rem;
   // top right bottom left
-}
-
-/*
-=============== 
-cardItem Styles
-===============
-*/
-
-.cardItem {
-  // display: grid;
-  // @include cardItemMIXIN;
-  display: flex;
-  flex-direction: column;
-  margin: 1rem auto 0.5rem 1rem 1.81rem;
-  // top right bottom left:;
-  align-items: center;
-  justify-content: flex-start;
-  justify-items: left;
-  max-width: 7.94rem;
-  .logo-desc {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .swissLogo {
-    background: url(../../asset/image/logo/swis.png) no-repeat center;
-    width: 1.25rem;
-    height: 1.25rem;
-    flex-shrink: 0;
-    border: 1px solid $textGold;
-    margin: 0.5rem 0.5rem 0.06rem 1.81rem;
-    // top right bottom left:;
-
-    border-radius: 0.0625rem;
-    -webkit-border-radius: 0.0625rem;
-    -moz-border-radius: 0.0625rem;
-    -ms-border-radius: 0.0625rem;
-    -o-border-radius: 0.0625rem;
-  }
-
-  .description {
-    float: left;
-    color: $textGold;
-    font-family: Saira;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    width: 5rem;
-    // margin-left: -1.81rem;
-    margin-top: 0.5rem;
-    text-wrap: nowrap;
-  }
-  .title {
-    width: 3.4375rem;
-    color: $textGreen;
-    font-family: Saira;
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    margin-left: -1.81rem;
-    margin-top: 0.06rem;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    text-wrap: nowrap;
-  }
 }
 
 /*

@@ -21,13 +21,15 @@ const cardDataLenght = Object.keys(cardData).length;
 let cardItems = [];
 for (let i = 1; i <= cardDataLenght; i++) {
   cardItems.push(
-    <li key={i} className={`cardItem cardItem-${i}`}>
-      <div className="logo-desc">
-        <div className="swissLogo" style={{ display: cardData[i][2] }}></div>
-        <p className="description">{cardData[i][0]}</p>
-      </div>
-      <p className={`title title-${i}`}>{cardData[i][1]}</p>
-    </li>
+   
+      <li key={i} className={`cardItem cardItem-${i}`}>
+        <div className="logo-desc">
+          <div className="swissLogo" style={{ display: cardData[i][2] }}></div>
+          <p className="description">{cardData[i][0]}</p>
+        </div>
+        <p className={`title title-${i}`}>{cardData[i][1]}</p>
+      </li>
+ 
   );
 }
 

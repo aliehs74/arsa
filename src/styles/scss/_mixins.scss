@@ -1,3 +1,9 @@
+@mixin SairaFontFamily {
+  @font-face {
+    font-family: Saira;
+    src: url(../../asset/saira-cufonfonts/Saira-Medium.ttf);
+  }
+}
 @mixin navitemsStyle {
   @for $i from 1 through 5 {
     .navitem#{$i} {
@@ -21,22 +27,73 @@
   }
 }
 
-@mixin cardItemMIXIN {
-  @each $number in $itemNumber {
-    @for $i from 1 through 15 {
-      @if $number == $i {
-        .cardItem-#{$number} {
-          grid-template-columns: 1fr;
-          grid-template-rows: 1fr;
-        }
-      }
-      @if $number != $i {
-        .cardItem-#{$number} {
-          /* Styles for the else condition */
-          grid-template-columns: repeat(2, 1fr);
-          grid-template-rows: repeat(2, 1fr);
-        }
-      }
+@mixin insideBorder {
+  &:nth-child(3n - 2),
+  &:nth-child(3n - 1) {
+    &::after {
+      content: "";
+      position: absolute;
+      border-right: 0.5px solid $bodyBackgroundColor;
+      right: -2.5rem;
+      height: 2rem;
+      transform: translateY(40%);
+      -webkit-transform: translateY(40%);
+      -moz-transform: translateY(40%);
+      -ms-transform: translateY(40%);
+      -o-transform: translateY(40%);
+    }
+  }
+  &:nth-child(3n) {
+    &::after {
+      content: "";
+      position: absolute;
+      border-top: 0.5px solid $bodyBackgroundColor;
+      left: 0;
+      top: 2px;
+      height: 105%;
+      //height: 0;
+      width: 340%;
+      transform: translateY(0);
+      transform: translateX(-68%);
+      -webkit-transform: translateX(-68%);
+      -moz-transform: translateX(-68%);
+      -ms-transform: translateX(-68%);
+      -o-transform: translateX(-68%);
+    }
+  }
+
+  &:last-child {
+    &::after {
+      content: "";
+      position: absolute;
+      border-bottom: 0.5px solid $bodyBackgroundColor;
+      left: 0;
+      top: 0px;
+      height: 100%;
+      //height: 0;
+      width: 340%;
+      //transform: translateY(0%);
+      transform: translateX(-53%);
+      -webkit-transform: translateX(-53%);
+      -moz-transform: translateX(-53%);
+      -ms-transform: translateX(-53%);
+      -o-transform: translateX(-53%);
+    }
+  }
+
+  &:nth-child(14),
+  &:nth-child(15) {
+    margin-left: -2rem;
+    &::after {
+      border-right: none;
+    }
+  }
+  &:nth-child(15) {
+    margin-left: -4rem;
+  }
+  &:nth-child(13) {
+    &::after {
+      border-right: none;
     }
   }
 }
